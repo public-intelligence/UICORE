@@ -1,0 +1,43 @@
+<app-detail-page-shell title="Prueba">
+  <ng-container subtitle>
+    <div class="template-detail__subtitle">
+      Código: <span class="template-detail__code">1</span>
+      <span class="template-detail__sep">|</span> ID: 1
+    </div>
+  </ng-container>
+  <ng-container actions>
+    <button type="button" class="template-detail__btn template-detail__btn--white">Refrescar</button>
+    <button type="button" class="template-detail__btn template-detail__btn--primary">Nueva Versión</button>
+  </ng-container>
+
+  <div class="template-detail__section">
+    <div class="template-detail__section-header">
+      <h3 class="template-detail__section-title">Historial de Versiones</h3>
+      <div class="template-detail__section-meta">
+        <span class="template-detail__total">Total: 1</span>
+      </div>
+    </div>
+    <ul class="template-detail__versions">
+      <li>
+        <a [routerLink]="['/templates', '1', 'versions', '1']" class="template-detail__version-link">
+          <div class="template-detail__version-inner">
+            <div class="template-detail__version-left">
+              <span class="template-detail__version-num">v1.0</span>
+              <app-status-pill status="Published" type="publication" />
+              <span class="template-detail__badge template-detail__badge--green">VIGENTE</span>
+              <span class="template-detail__badge template-detail__badge--blue">PÚBLICO</span>
+            </div>
+            <div class="template-detail__version-right">
+              <span class="template-detail__date">Vigencia: Mar 6, 2026</span>
+              <div class="template-detail__schema-btns">
+                <button type="button" title="Schema Interno" class="template-detail__schema-btn">Schema (Int)</button>
+                <button type="button" title="Schema Público" class="template-detail__schema-btn template-detail__schema-btn--primary">Schema (Pub)</button>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <router-outlet></router-outlet>
+</app-detail-page-shell>

@@ -1,0 +1,17 @@
+# Archivos locales y secretos: nunca se versionan
+.DS_Store
+.env
+.npmrc
+
+# Compilación y dependencias
+node_modules/
+dist/
+bin/
+obj/
+.angular/
+.vs/
+*.user
+*.suo
+
+# Configuración personal de Claude Code de cada desarrollador
+.claude/settings.local.json

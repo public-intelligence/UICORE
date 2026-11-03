@@ -1,0 +1,13 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/public-intelligence/ui-core",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  },
+  "assets": [
+    "./tailwind.preset.js",
+    "./Sistema de Diseño.css",
+    "./styles.css",
+    "./css/styles.css"
+  ]
+}

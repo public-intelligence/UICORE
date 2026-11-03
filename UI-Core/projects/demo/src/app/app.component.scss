@@ -1,0 +1,69 @@
+// Layout principal de la app (sidebar + header + main)
+:host {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background-color: #f9fafb;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+.app-layout__banner {
+  width: 100%;
+  background-color: #facc15;
+  color: #713f12;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  flex-shrink: 0;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.app-layout__body {
+  flex: 1;
+  overflow: visible; /* allow header profile dropdown to show below */
+  display: flex;
+  position: relative;
+  min-height: 0; /* keep flex sizing so main can scroll */
+}
+
+.app-layout__main-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: visible; /* allow header profile dropdown to show below */
+  width: 100%;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.app-layout__main {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #f3f4f6;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .app-layout__main {
+    padding: 1.5rem;
+  }
+}
+
+.app-layout__container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}

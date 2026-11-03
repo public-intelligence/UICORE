@@ -1,0 +1,43 @@
+<app-page-shell title="Instrumentos">
+  <ng-container actions>
+    <a routerLink="/norms/create" class="instrument-list__btn instrument-list__btn--primary">
+      + Nuevo Instrumento
+    </a>
+  </ng-container>
+  <ng-container filters>
+    <app-filter-bar
+      searchLabel="Buscar por Nombre o Identificador"
+      [(searchQuery)]="searchQuery"
+      [showDeletedToggle]="true"
+      [(includeDeleted)]="includeDeleted"
+    />
+  </ng-container>
+
+  <app-data-table
+    [data]="tableData"
+    [columns]="columns"
+    [loading]="false"
+    tableCaption="Lista de Instrumentos"
+  />
+
+  <ng-template #titleCell let-item>
+    <div class="instrument-list__title-cell">
+      <div class="instrument-list__title-row">
+        <a [routerLink]="['/norms', item.id]" class="instrument-list__link">
+          {{ item.title }}
+          <svg class="instrument-list__link-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+      <div class="instrument-list__number">Número: {{ item.number }}</div>
+    </div>
+  </ng-template>
+  <ng-template #actionsCell let-item>
+    <app-action-menu
+      [items]="actionMenuItems"
+      ariaLabel="Opciones del instrumento"
+      (action)="onAction($event, item)"
+    />
+  </ng-template>
+</app-page-shell>

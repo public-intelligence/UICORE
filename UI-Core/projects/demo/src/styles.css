@@ -1,0 +1,25 @@
+/* Tailwind v4: directiva principal */
+@import "tailwindcss";
+
+/* Incluir clases de la librería (Tailwind v4 @source) */
+@source "../../../public-intelligence/ui-core/src/**/*.{html,ts}";
+@source "../../../node_modules/@public-intelligence/ui-core/**/*.{html,ts,mjs,js}";
+
+/* Color institucional (opcional: también en tailwind.config.js) */
+@theme {
+  --color-gob-blue: #0056b3;
+}
+
+/* Estilos de la librería: en este workspace se cargan vía angular.json (styles.css).
+   Si consumes @public-intelligence/ui-core desde npm, agrega en tu global: @import "@public-intelligence/ui-core/styles.css"; */
+
+/* Botones estilo NORM */
+.btn {
+  @apply inline-flex items-center px-4 py-2 border text-sm font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+.btn-white {
+  @apply border-gray-300 bg-white text-gray-700 hover:bg-gray-50 focus:ring-gray-500;
+}
+.btn-primary {
+  @apply border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+}

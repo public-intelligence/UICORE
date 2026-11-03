@@ -1,0 +1,22 @@
+.placeholder {
+  background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+
+  @media (min-width: 640px) {
+    border-radius: 0.5rem;
+  }
+}
+
+.placeholder__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.placeholder__text {
+  font-size: 0.875rem;
+  color: #6b7280;
+}

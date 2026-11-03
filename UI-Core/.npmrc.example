@@ -1,0 +1,6 @@
+# Copia este archivo a .npmrc solo si vas a publicar @public-intelligence/ui-core en GitHub Packages
+# o a instalarlo desde allí. NPM_TOKEN es un token de GitHub con read:packages (instalar) o write:packages (publicar).
+# En desarrollo local (npm install, ng serve) no hace falta; sin .npmrc usa el registry por defecto.
+@public-intelligence:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+legacy-peer-deps=true

@@ -1,0 +1,197 @@
+<app-page-shell title="Catálogo de componentes @public-intelligence/ui-core" description="Demostración de los componentes reutilizables de la librería.">
+  <div class="demo-catalog">
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">Alertas (AlertBanner)</h2>
+      <app-alert-banner type="success" title="Éxito" message="Operación completada correctamente." />
+      <app-alert-banner type="info" title="Información" message="Este es un mensaje informativo." />
+      <app-alert-banner type="warning" title="Atención" message="Revise los datos antes de continuar." />
+      <app-alert-banner type="error" title="Error" message="Ha ocurrido un problema. Intente de nuevo." />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">NotificationBanner</h2>
+      <app-notification-banner
+        type="success"
+        title="Cambios guardados"
+        message="La configuración se ha actualizado correctamente."
+        [visible]="true"
+      />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">StatusPill</h2>
+      <div class="demo-catalog__pills">
+        <app-status-pill status="Publicado" type="publication" />
+        <app-status-pill status="Borrador" type="publication" />
+        <app-status-pill status="Archivado" type="publication" />
+        <app-status-pill status="Público" type="access" />
+        <app-status-pill status="Vigente" type="validity" />
+      </div>
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">ActionMenu</h2>
+      <app-action-menu
+        [items]="actionMenuItems"
+        ariaLabel="Opciones de fila"
+        (action)="onAction($event)"
+      />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">ConfirmModal</h2>
+      <p class="demo-catalog__desc">Modal de confirmación con tipos: primary, danger, warning.</p>
+      <button type="button" (click)="openConfirmModal()" class="demo-catalog__btn">Abrir ConfirmModal</button>
+      <app-confirm-modal
+        [isOpen]="confirmModalOpen"
+        title="¿Confirmar acción?"
+        message="Esta es una acción que requiere confirmación."
+        confirmText="Aceptar"
+        cancelText="Cancelar"
+        type="primary"
+        (confirm)="onConfirmModalConfirm()"
+        (cancel)="onConfirmModalCancel()"
+      />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">ConfirmationDialog</h2>
+      <p class="demo-catalog__desc">Diálogo de confirmación (danger / info) con foco y escape.</p>
+      <button type="button" (click)="openConfirmDialog()" class="demo-catalog__btn">Abrir ConfirmationDialog</button>
+      <app-confirmation-dialog
+        [isOpen]="confirmDialogOpen"
+        title="Eliminar elemento"
+        message="Esta acción no se puede deshacer."
+        confirmText="Eliminar"
+        cancelText="Cancelar"
+        type="danger"
+        (onConfirm)="onConfirmDialogConfirm()"
+        (onCancel)="onConfirmDialogCancel()"
+      />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">CredentialsLoader</h2>
+      <p class="demo-catalog__desc">Overlay a pantalla completa para esperas de OAuth u otras verificaciones. Se cierra automáticamente a los 3 segundos en esta demo.</p>
+      <div class="demo-catalog__pills">
+        <button type="button" (click)="openCredentialsLoader()" class="demo-catalog__btn">Abrir CredentialsLoader</button>
+        <button type="button" (click)="openCredentialsLoaderCustom()" class="demo-catalog__btn">Abrir con mensaje personalizado</button>
+      </div>
+      @if (credentialsLoaderOpen) {
+        <app-credentials-loader />
+      }
+      @if (credentialsLoaderCustomOpen) {
+        <app-credentials-loader
+          message="Cerrando sesión..."
+          subtitle="Esto solo tomará un momento"
+          spinnerColor="#9333ea"
+        />
+      }
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">DetailPageShell</h2>
+      <p class="demo-catalog__desc">Contenedor para páginas de detalle: título, subtítulo, acciones y contenido.</p>
+      <app-detail-page-shell title="Ejemplo de página de detalle">
+        <span subtitle>Subtítulo o descripción opcional</span>
+        <button type="button" class="demo-catalog__btn" actions>Acción principal</button>
+        <p>Contenido principal del detalle. Aquí va el cuerpo de la página.</p>
+      </app-detail-page-shell>
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">FilterBar</h2>
+      <p class="demo-catalog__desc">Barra de búsqueda y filtros (opcional: incluir eliminados).</p>
+      <app-filter-bar
+        searchLabel="Buscar"
+        searchPlaceholder="Escriba para buscar..."
+        [(searchQuery)]="filterSearchQuery"
+        [showDeletedToggle]="true"
+        [(includeDeleted)]="filterIncludeDeleted"
+        (search)="onFilterSearch($event)"
+      />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">ErrorSummary</h2>
+      <app-error-summary [errors]="errorSummaryItems" />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">ValidationResultsPanel</h2>
+      <app-validation-results-panel [violations]="validationViolations" [passed]="false" />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">ImmutableBanner</h2>
+      <app-immutable-banner status="published" (cloneClicked)="onClone()" />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">DataTable</h2>
+      <app-data-table
+        [data]="tableData"
+        [columns]="tableColumns"
+        [loading]="false"
+        tableCaption="Listado de ejemplo"
+      />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">PaginatedTable</h2>
+      <p class="demo-catalog__desc">Tabla con paginación (anterior / siguiente y texto de rango).</p>
+      <app-paginated-table
+        [data]="paginatedData"
+        [columns]="paginatedColumns"
+        [loading]="false"
+        (pageChange)="onPaginatedPageChange($event)"
+      />
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">Dropdown con búsqueda</h2>
+      <p class="demo-catalog__desc">Selección única con campo de búsqueda para filtrar opciones.</p>
+      <app-dropdown-search
+        [options]="dropdownSearchOptions"
+        [(value)]="dropdownSearchValue"
+        placeholder="Elegir una opción..."
+        searchPlaceholder="Buscar..."
+        noResultsText="No hay coincidencias"
+        ariaLabel="Lista con búsqueda"
+        (valueChange)="onDropdownSearchChange($event)"
+      />
+      @if (dropdownSearchValue) {
+        <p class="demo-catalog__value">Seleccionado: <strong>{{ dropdownSearchValue }}</strong></p>
+      }
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">Dropdown selección múltiple</h2>
+      <p class="demo-catalog__desc">Varias opciones; con <code>closeOnSelect="false"</code> el menú permanece abierto.</p>
+      <app-dropdown-multi-select
+        [options]="dropdownMultiOptions"
+        [(value)]="dropdownMultiValue"
+        placeholder="Seleccionar categorías..."
+        [closeOnSelect]="false"
+        [showSearch]="true"
+        ariaLabel="Categorías"
+        (valueChange)="onDropdownMultiChange($event)"
+      />
+      @if (dropdownMultiValue.length) {
+        <p class="demo-catalog__value">Seleccionados: <strong>{{ dropdownMultiValue.join(', ') }}</strong></p>
+      }
+    </section>
+
+    <section class="demo-catalog__section">
+      <h2 class="demo-catalog__heading">TreeView</h2>
+      <div class="demo-catalog__tree-wrap">
+        <app-tree-view
+          [nodes]="treeNodes"
+          [selectedId]="selectedNodeId"
+          ariaLabel="Estructura de ejemplo"
+          (nodeSelected)="onNodeSelected($event)"
+        />
+      </div>
+    </section>
+  </div>
+</app-page-shell>
