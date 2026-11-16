@@ -36,4 +36,4 @@ The complete component reference is in the [UI-Core repository](https://github.c
 
 ## License
 
-Copyright 2026 Jean Antonio Garcia Periche, Melissa Michelle Muñoz Suro and Rainier Christopher Domingo Mallol Cotes. Licensed under the Apache License, Version 2.0. See `LICENSE` and `NOTICE` in this package.
+Copyright 2026 Rainier Christopher Domingo Mallol Cotes, Jean Antonio Garcia Periche and Melissa Michelle Muñoz Suro. Licensed under the Apache License, Version 2.0. See `LICENSE` and `NOTICE` in this package.
