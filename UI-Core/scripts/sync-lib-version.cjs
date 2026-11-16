@@ -1,6 +1,7 @@
 /**
  * Copia name, version y campos de publicación del package.json de la librería
  * al package.json de dist, sin tocar los campos que genera ng-packagr (module, typings, exports).
+ * También copia LICENSE y NOTICE (Apache 2.0) a dist, porque deben acompañar al paquete publicado.
  * Uso: node scripts/sync-lib-version.cjs
  */
 const fs = require('fs');
@@ -34,4 +35,10 @@ dist.sideEffects = src.sideEffects;
 
 fs.writeFileSync(distPkgPath, JSON.stringify(dist, null, 2) + '\n');
 console.log('Dist actualizado -> version:', dist.version);
+
+// LICENSE y NOTICE viven en la raíz del workspace; ng-packagr no copia assets de fuera de la librería.
+for (const archivo of ['LICENSE', 'NOTICE']) {
+  fs.copyFileSync(path.join(root, archivo), path.join(path.dirname(distPkgPath), archivo));
+}
+console.log('LICENSE y NOTICE copiados a dist');
 console.log('');

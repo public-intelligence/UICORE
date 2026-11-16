@@ -1,39 +1,26 @@
-# UiCore
+# UI-Core workspace
 
-Librería Angular **@public-intelligence/ui-core** y aplicación **demo** para probar los componentes (layout, header, sidebar, alertas, tablas, etc.).
+Angular workspace with the **`@public-intelligence/ui-core`** library and a **demo** app that shows every component.
 
-## Ejecutar el proyecto (probar la demo)
+See the [repository README](../README.md) for what the library includes, how to use it and how to publish it. The full guide, in Spanish, is [`DOCUMENTACION.md`](DOCUMENTACION.md), and the component reference is [`COMPONENTES-UI-CORE.md`](COMPONENTES-UI-CORE.md).
 
-1. **Instalar dependencias:**  
-   `npm install`
+## Structure
 
-2. **Levantar la demo:**  
-   `ng serve`  
-   (o `npm start`). Opcional: `ng serve --open` para abrir el navegador.
+```
+projects/public-intelligence/ui-core/   The library (published to GitHub Packages)
+projects/demo/                          Demo app with the component catalog
+scripts/sync-lib-version.cjs            Prepares dist/ for publishing: version, publishing fields, LICENSE and NOTICE
+```
 
-Se abrirá **http://localhost:4200/** (o el puerto que indique la consola).  
-**Toda la documentación (desarrollo, consumir, publicar, referencia):** [DOCUMENTACION.md](./DOCUMENTACION.md).
+## Commands
 
-## Development server (demo)
+```bash
+npm install
+npm start                                  # demo at http://localhost:4200 (catalog at /catalogos)
+npm run build:lib                          # library into dist/public-intelligence/ui-core
+ng generate component <name> --project @public-intelligence/ui-core
+```
 
-Run `ng serve` (o `npm start`) for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## License
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Apache License 2.0. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
