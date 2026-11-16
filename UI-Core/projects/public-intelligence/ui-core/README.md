@@ -1,24 +1,39 @@
-# UiCore
+# @public-intelligence/ui-core
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.0.
+Shared Angular component library and design system used by Bot Factory, GOB-ID and PDS. It provides:
+- an administration layout, with sidebar, header and layout service;
+- shared components: tables, dropdowns, banners, modals, filter bar, status pill, tree view and more;
+- a toast service;
+- the design system styles and a Tailwind preset.
 
-## Code scaffolding
+## Install
 
-Run `ng generate component component-name --project ui-core` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ui-core`.
-> Note: Don't forget to add `--project ui-core` or else it will be added to the default project in your `angular.json` file. 
+The package is published on GitHub Packages. Add the registry to your `.npmrc`, with a GitHub token that has `read:packages` in `NPM_TOKEN`:
 
-## Build
+```
+@public-intelligence:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NPM_TOKEN}
+```
 
-Run `ng build ui-core` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm install @public-intelligence/ui-core
+```
 
-## Publishing
+The library declares Angular 18 as its peer dependency. On newer Angular versions, install it with `--legacy-peer-deps` or an npm `overrides` entry.
 
-After building your library with `ng build ui-core`, go to the dist folder `cd dist/ui-core` and run `npm publish`.
+## Styles
 
-## Running unit tests
+- **Tailwind CSS 4:** add `node_modules/@public-intelligence/ui-core/styles.css` to the `styles` of `angular.json`. After `@import "tailwindcss";` in your stylesheet, add `@source "../node_modules/@public-intelligence/ui-core/fesm2022/public-intelligence-ui-core.mjs";`.
+- **Tailwind CSS 3:** add `./node_modules/@public-intelligence/ui-core/**/*.{html,ts,mjs,js}` to `content` in `tailwind.config.js`, and `@import "@public-intelligence/ui-core/styles.css";` to your stylesheet.
 
-Run `ng test ui-core` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Use
 
-## Further help
+```ts
+import { AdminLayoutComponent, AlertBannerComponent, ToastService } from '@public-intelligence/ui-core';
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The complete component reference is in the [UI-Core repository](https://github.com/public-intelligence/UICORE).
+
+## License
+
+Copyright 2026 Jean Antonio Garcia Periche, Melissa Michelle Muñoz Suro and Rainier Christopher Domingo Mallol Cotes. Licensed under the Apache License, Version 2.0. See `LICENSE` and `NOTICE` in this package.
